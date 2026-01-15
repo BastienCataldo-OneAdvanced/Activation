@@ -1,4 +1,4 @@
-package com.asset.activation.model;
+package com.asset.activation.form;
 
 import java.time.LocalDateTime;
 

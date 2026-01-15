@@ -1,4 +1,6 @@
-package com.asset.activation.model;
+package com.asset.activation.DTO;
+
+import com.asset.activation.data.AssetEntity;
 
 public class AssetMapper {
 	 public static AssetDTO toDTO(AssetEntity assetEntity) {

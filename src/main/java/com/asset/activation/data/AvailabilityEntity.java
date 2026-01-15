@@ -1,8 +1,8 @@
-package com.asset.activation.model;
+package com.asset.activation.data;
 
 import java.time.LocalDateTime;
 
-public class Availability {
+public class AvailabilityEntity {
 	private LocalDateTime start;
     private LocalDateTime end;
     

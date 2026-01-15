@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.asset.activation.model.ActivationRequest;
-import com.asset.activation.model.AssetDTO;
+import com.asset.activation.DTO.AssetDTO;
+import com.asset.activation.form.ActivationRequest;
 import com.asset.activation.service.AssetSelectionService;
 
 @RestController
-@RequestMapping("/activate")
+@RequestMapping("/flexcity")
 public class ActivationController {
 
 	private final AssetSelectionService assetSelectionService;
@@ -21,8 +21,8 @@ public class ActivationController {
 	    this.assetSelectionService = assetSelectionService;
 	}
 	
-	@PostMapping
+	@PostMapping("/activate")
 	public List<AssetDTO> activate(@RequestBody ActivationRequest request) {
-	    return assetSelectionService.selectAssets(request);
+	   return assetSelectionService.selectAssets(request);
 	}
 }

@@ -1,4 +1,4 @@
-package com.asset.activation.model;
+package com.asset.activation.DTO;
 
 public class AssetDTO {
 	private String code;
