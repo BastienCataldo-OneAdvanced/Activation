@@ -1,31 +1,25 @@
 package com.asset.activation.service;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.asset.activation.DTO.AssetDTO;
-import com.asset.activation.DTO.AssetMapper;
-import com.asset.activation.data.AssetEntity;
 import com.asset.activation.data.AssetRepository;
-import com.asset.activation.data.AvailabilityEntity;
-import com.asset.activation.exception.AssetException;
 import com.asset.activation.exception.PropertyException;
 import com.asset.activation.form.ActivationRequest;
 
 @Service
 public class AssetSelectionService {
 	
-	private AssetRepository repo = new AssetRepository();
+	private final AssetRepository repo;
 	
 	@Value("${activation.assets.selection.algo.type}")
 	private String algoType;
 
-    public AssetSelectionService() {
-    	
+    public AssetSelectionService(AssetRepository repo) {
+    	this.repo = repo;
     }
 	
     /**
@@ -38,9 +32,9 @@ public class AssetSelectionService {
 		try {
 			switch(algoType) {
 				case "simple":
-					return findAvailableAssets(request.getDate(), request.getVolume(), repo.getAssets());
+					return SelectAssetSimple.selectAssetsSimple(request.getVolume(), repo.findAssetsByDate(request.getDate()));
 				case "complex":
-					return findAvailableAssetsComplex(request.getDate(), request.getVolume(), repo.getAssets());
+					return SelectAssetComplex.selectAssetsComplex(request.getVolume(), repo.findAssetsByDate(request.getDate()));
 				default:
 					throw new PropertyException("no type of algo selected");
 			}
@@ -49,42 +43,7 @@ public class AssetSelectionService {
 		}
 	}
 	
-	/**
-	 * Method to get the list of available assets through a simple way with date and volume conditions
-	 * @param activationDate
-	 * @param volumeNeeded
-	 * @return list of available assets regarding the simple conditions
-	 * @throws AssetException 
-	 */
-	public List<AssetDTO> findAvailableAssets(LocalDateTime activationDate, int volumeNeeded, List<AssetEntity> assets) throws AssetException{
-		List<AssetDTO> availableAssets = new ArrayList<AssetDTO>();
-		
-		for(AssetEntity asset:assets) {
-			for (AvailabilityEntity availabilitySlot : asset.getAvailability()) {
-                if (!activationDate.isBefore(availabilitySlot.getStart()) &&
-                    !activationDate.isAfter(availabilitySlot.getEnd())) {
-                	availableAssets.add(AssetMapper.toDTO(asset));
-                	volumeNeeded=volumeNeeded-asset.getVolume();
-                	if(volumeNeeded<0)return availableAssets;
-                }
-            }
-		}
-		if(availableAssets.isEmpty())
-			throw new AssetException("No assets found!");
-		return availableAssets;
-	}
+	
 
-	/**
-	 * Method to get the list of available assets with more parameters and complexity
-	 * @param activationDate
-	 * @param volumeNeeded
-	 * @return list of available assets regarding the simple conditions
-	 */
-	public List<AssetDTO> findAvailableAssetsComplex(LocalDateTime activationDate, int volumeNeeded, List<AssetEntity> assets) {
-		List<AssetDTO> availableAssets = new ArrayList<AssetDTO>();
-		//TODO
-		
-		return availableAssets;
-	}
-
+	
 }

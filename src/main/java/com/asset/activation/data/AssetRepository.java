@@ -1,6 +1,8 @@
 package com.asset.activation.data;
 
 import java.io.File;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -16,10 +18,10 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 public class AssetRepository {
 
 	private final List<AssetEntity> assets;
-	@Value("${activation.assets.json.path}")
-	private String filePath;
+	private final String filePath;
 	
-	public AssetRepository() {
+	public AssetRepository(@Value("${activation.assets.json.path}")String filePath) {
+		this.filePath = filePath;
 		this.assets = loadAssetsFromJson();
 	}
 		
@@ -39,6 +41,26 @@ public class AssetRepository {
 		}catch (Exception e) {
 			throw new RuntimeException(e);
 		}
+	}
+	
+	/**
+	 * Method to get the list of available assets regarding the Date
+	 * @param activationDate
+	 * @return list of available assets
+	 */
+	public List<AssetEntity> findAssetsByDate(LocalDateTime activationDate) {
+		List<AssetEntity> availableAssets = new ArrayList<AssetEntity>();
+		for(AssetEntity asset:assets) {
+			for (AvailabilityEntity availabilitySlot : asset.getAvailability()) {
+                if (!activationDate.isBefore(availabilitySlot.getStart()) &&
+                    !activationDate.isAfter(availabilitySlot.getEnd())) {
+                	availableAssets.add(asset);
+                	break;//Don't check other hours if we already got 1 because some asset have several hours available in the same day
+                }
+            }
+		}
+
+		return availableAssets;
 	}
 
 	public List<AssetEntity> getAssets() {

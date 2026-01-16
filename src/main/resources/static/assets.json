@@ -3,7 +3,7 @@
     "code": "Asset1",
     "name": "OrangeBatteries",
     "clientType": "consumer",
-    "activationCost": 1200,
+    "activationCost": 1100,
     "availability": [
       {
         "start": "2026-01-17T14:00:00",
@@ -48,7 +48,7 @@
     "code": "Asset2",
     "name": "BlueSolarPanels",
     "clientType": "producer",
-    "activationCost": 1850,
+    "activationCost": 2850,
     "availability": [
       {
         "start": "2026-01-20T16:00:00",
@@ -138,7 +138,7 @@
     "code": "Asset4",
     "name": "RedHydroPlant",
     "clientType": "producer",
-    "activationCost": 2400,
+    "activationCost": 2800,
     "availability": [
       {
         "start": "2026-01-19T06:00:00",
@@ -183,7 +183,7 @@
     "code": "Asset5",
     "name": "YellowGeothermal",
     "clientType": "producer",
-    "activationCost": 1650,
+    "activationCost": 1450,
     "availability": [
       {
         "start": "2026-01-14T14:00:00",
@@ -228,7 +228,7 @@
     "code": "Asset6",
     "name": "PurpleStorage",
     "clientType": "consumer",
-    "activationCost": 1400,
+    "activationCost": 1300,
     "availability": [
       {
         "start": "2026-01-16T18:00:00",
@@ -273,7 +273,7 @@
     "code": "Asset7",
     "name": "BlackCoalPlant",
     "clientType": "producer",
-    "activationCost": 2200,
+    "activationCost": 3200,
     "availability": [
       {
         "start": "2026-01-17T06:00:00",
@@ -318,7 +318,7 @@
     "code": "Asset8",
     "name": "WhiteNuclear",
     "clientType": "producer",
-    "activationCost": 2400,
+    "activationCost": 4000,
     "availability": [
       {
         "start": "2026-01-17T08:00:00",
@@ -363,7 +363,7 @@
     "code": "Asset9",
     "name": "SilverBiomass",
     "clientType": "producer",
-    "activationCost": 1550,
+    "activationCost": 1750,
     "availability": [
       {
         "start": "2026-01-19T07:00:00",
@@ -408,7 +408,7 @@
     "code": "Asset10",
     "name": "GoldFuelCell",
     "clientType": "producer",
-    "activationCost": 1950,
+    "activationCost": 1550,
     "availability": [
       {
         "start": "2026-01-20T07:00:00",
@@ -453,7 +453,7 @@
     "code": "Asset11",
     "name": "CyanTidalEnergy",
     "clientType": "producer",
-    "activationCost": 1800,
+    "activationCost": 1900,
     "availability": [
       {
         "start": "2026-01-15T10:00:00",
@@ -498,7 +498,7 @@
     "code": "Asset12",
     "name": "MagentaWaveGen",
     "clientType": "producer",
-    "activationCost": 1700,
+    "activationCost": 1400,
     "availability": [
       {
         "start": "2026-01-20T09:00:00",
@@ -543,7 +543,7 @@
     "code": "Asset13",
     "name": "LimeHydrogen",
     "clientType": "producer",
-    "activationCost": 2150,
+    "activationCost": 2350,
     "availability": [
       {
         "start": "2026-01-16T12:00:00",
@@ -588,7 +588,7 @@
     "code": "Asset14",
     "name": "NavyCompressedAir",
     "clientType": "consumer",
-    "activationCost": 1600,
+    "activationCost": 1680,
     "availability": [
       {
         "start": "2026-01-16T09:00:00",
@@ -633,7 +633,7 @@
     "code": "Asset15",
     "name": "MaroonFlywheels",
     "clientType": "consumer",
-    "activationCost": 1450,
+    "activationCost": 1580,
     "availability": [
       {
         "start": "2026-01-16T06:00:00",
@@ -678,7 +678,7 @@
     "code": "Asset16",
     "name": "TealSupercapacitors",
     "clientType": "consumer",
-    "activationCost": 1650,
+    "activationCost": 2650,
     "availability": [
       {
         "start": "2026-01-17T09:00:00",
@@ -723,7 +723,7 @@
     "code": "Asset17",
     "name": "IndigoMicroGrid",
     "clientType": "producer",
-    "activationCost": 2050,
+    "activationCost": 2250,
     "availability": [
       {
         "start": "2026-01-20T09:00:00",
@@ -768,7 +768,7 @@
     "code": "Asset18",
     "name": "OliveDistributed",
 	"clientType": "producer",
-    "activationCost": 1750,
+    "activationCost": 1350,
     "availability": [
       {
         "start": "2026-01-20T13:00:00",
@@ -841,7 +841,7 @@
     "code": "Asset19",
     "name": "CoralOffshore",
 	"clientType": "producer",
-    "activationCost": 2300,
+    "activationCost": 2450,
     "availability": [
       {
         "start": "2026-01-17T11:00:00",
@@ -922,7 +922,7 @@
     "code": "Asset20",
     "name": "RubyPumpedHydro",
 	"clientType": "producer",
-    "activationCost": 2350,
+    "activationCost": 2650,
     "availability": [
       {
         "start": "2026-01-18T08:00:00",
@@ -1035,7 +1035,7 @@
     "code": "Asset21",
     "name": "AmberSmartGrid",
 	"clientType": "producer",
-    "activationCost": 1920,
+    "activationCost": 1820,
     "availability": [
       {
         "start": "2026-01-19T11:00:00",
@@ -1116,7 +1116,7 @@
     "code": "Asset22",
     "name": "BronzeHybrid",
 	"clientType": "producer",
-    "activationCost": 2180,
+    "activationCost": 2280,
     "availability": [
       {
         "start": "2026-01-18T08:00:00",
@@ -1217,7 +1217,7 @@
     "code": "Asset23",
     "name": "SapphirePeaking",
 	"clientType": "producer",
-    "activationCost": 1880,
+    "activationCost": 2880,
     "availability": [
       {
         "start": "2026-01-18T18:00:00",
@@ -1298,7 +1298,7 @@
     "code": "Asset24",
     "name": "EmeraldBaseload",
 	"clientType": "producer",
-    "activationCost": 2380,
+    "activationCost": 1380,
     "availability": [
       {
         "start": "2026-01-14T13:00:00",
@@ -1367,7 +1367,7 @@
     "code": "Asset25",
     "name": "PearlCogeneration",
 	"clientType": "producer",
-    "activationCost": 2020,
+    "activationCost": 1520,
     "availability": [
       {
         "start": "2026-01-18T14:00:00",
@@ -1460,7 +1460,7 @@
     "code": "Asset26",
     "name": "TurquoiseCHP",
 	"clientType": "producer",
-    "activationCost": 2120,
+    "activationCost": 2220,
     "availability": [
       {
         "start": "2026-01-19T08:00:00",
@@ -1517,7 +1517,7 @@
     "code": "Asset27",
     "name": "VioletThermal",
 	"clientType": "producer",
-    "activationCost": 1720,
+    "activationCost": 1820,
     "availability": [
       {
         "start": "2026-01-17T11:00:00",
@@ -1829,7 +1829,7 @@
     "code": "Asset31",
     "name": "BeigeRooftop",
 	"clientType": "producer",
-    "activationCost": 1180,
+    "activationCost": 1280,
     "availability": [
       {
         "start": "2026-01-18T07:00:00",
@@ -2011,7 +2011,7 @@
     "code": "Asset33",
     "name": "KhakiAgrivoltaic",
 	"clientType": "producer",
-    "activationCost": 1780,
+    "activationCost": 1980,
     "availability": [
       {
         "start": "2026-01-18T10:00:00",
@@ -2076,7 +2076,7 @@
     "code": "Asset34",
     "name": "MauveDemand",
 	"clientType": "producer",
-    "activationCost": 1480,
+    "activationCost": 2480,
     "availability": [
       {
         "start": "2026-01-14T17:00:00",
@@ -2165,7 +2165,7 @@
     "code": "Asset35",
     "name": "RoseVirtual",
 	"clientType": "producer",
-    "activationCost": 1320,
+    "activationCost": 1420,
     "availability": [
       {
         "start": "2026-01-20T17:00:00",
@@ -2242,7 +2242,7 @@
     "code": "Asset36",
     "name": "MintResponse",
 	"clientType": "producer",
-    "activationCost": 1580,
+    "activationCost": 1680,
     "availability": [
       {
         "start": "2026-01-18T18:00:00",
@@ -2408,7 +2408,7 @@
     "code": "Asset38",
     "name": "PeachCapacity",
 	"clientType": "producer",
-    "activationCost": 2140,
+    "activationCost": 2180,
     "availability": [
       {
         "start": "2026-01-18T17:00:00",
@@ -2497,7 +2497,7 @@
     "code": "Asset39",
     "name": "PlumReserve",
 	"clientType": "producer",
-    "activationCost": 2000,
+    "activationCost": 2220,
     "availability": [
       {
         "start": "2026-01-17T16:00:00",
@@ -2582,7 +2582,7 @@
     "code": "Asset40",
     "name": "ScarletSpinning",
 	"clientType": "producer",
-    "activationCost": 2250,
+    "activationCost": 2550,
     "availability": [
       {
         "start": "2026-01-19T14:00:00",
@@ -2659,7 +2659,7 @@
     "code": "Asset41",
     "name": "TanInterruptible",
 	"clientType": "producer",
-    "activationCost": 1380,
+    "activationCost": 1180,
     "availability": [
       {
         "start": "2026-01-17T07:00:00",
@@ -2748,7 +2748,7 @@
     "code": "Asset42",
     "name": "AquaFirmPower",
 	"clientType": "producer",
-    "activationCost": 2320,
+    "activationCost": 2220,
     "availability": [
       {
         "start": "2026-01-18T10:00:00",
@@ -2833,7 +2833,7 @@
     "code": "Asset43",
     "name": "SalmonFlexible",
 	"clientType": "producer",
-    "activationCost": 1620,
+    "activationCost": 2620,
     "availability": [
       {
         "start": "2026-01-16T07:00:00",
@@ -2922,7 +2922,7 @@
     "code": "Asset44",
     "name": "ChartreusePeak",
 	"clientType": "producer",
-    "activationCost": 2080,
+    "activationCost": 2580,
     "availability": [
       {
         "start": "2026-01-19T09:00:00",
@@ -3011,7 +3011,7 @@
     "code": "Asset45",
     "name": "FuchsiaBalancing",
 	"clientType": "producer",
-    "activationCost": 1740,
+    "activationCost": 1540,
     "availability": [
       {
         "start": "2026-01-16T11:00:00",
@@ -3084,7 +3084,7 @@
     "code": "Asset46",
     "name": "SiennaAncillary",
 	"clientType": "producer",
-    "activationCost": 1560,
+    "activationCost": 1680,
     "availability": [
       {
         "start": "2026-01-18T16:00:00",
@@ -3157,7 +3157,7 @@
     "code": "Asset47",
     "name": "BurgundyRegulation",
 	"clientType": "producer",
-    "activationCost": 1960,
+    "activationCost": 1870,
     "availability": [
       {
         "start": "2026-01-16T13:00:00",
@@ -3242,7 +3242,7 @@
     "code": "Asset48",
     "name": "CopperSynchronous",
 	"clientType": "producer",
-    "activationCost": 2200,
+    "activationCost": 2410,
     "availability": [
       {
         "start": "2026-01-18T06:00:00",
@@ -3343,7 +3343,7 @@
     "code": "Asset49",
     "name": "PlatinumInertia",
 	"clientType": "producer",
-    "activationCost": 2390,
+    "activationCost": 2580,
     "availability": [
       {
         "start": "2026-01-19T18:00:00",
