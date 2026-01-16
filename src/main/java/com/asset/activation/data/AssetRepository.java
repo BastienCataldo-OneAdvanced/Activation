@@ -3,6 +3,7 @@ package com.asset.activation.data;
 import java.io.File;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -15,7 +16,8 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 public class AssetRepository {
 
 	private final List<AssetEntity> assets;
-	private String filePath = "src\\main\\resources\\static\\assets.json";
+	@Value("${activation.assets.json.path}")
+	private String filePath;
 	
 	public AssetRepository() {
 		this.assets = loadAssetsFromJson();

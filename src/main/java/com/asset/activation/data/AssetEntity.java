@@ -1,14 +1,13 @@
 package com.asset.activation.data;
-
 import java.util.List;
 
 public class AssetEntity {
 	private String code;
 	private String name;
+	private String clientType;
 	private double activationCost;
 	private List<AvailabilityEntity> availability;
 	private int volume;
-	//private Duration duree; Is there a duration information?
 	//private int priority;
 	
 	public String getCode() {
@@ -22,6 +21,12 @@ public class AssetEntity {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getClientType() {
+		return clientType;
+	}
+	public void setClientType(String clientType) {
+		this.clientType = clientType;
 	}
 	public double getActivationCost() {
 		return activationCost;

@@ -19,13 +19,13 @@ import com.asset.activation.form.ActivationRequest;
 @Service
 public class AssetSelectionService {
 	
-	private final AssetRepository repo;
+	private AssetRepository repo = new AssetRepository();
 	
-	@Value("${activation.type.algo}")
+	@Value("${activation.assets.selection.algo.type}")
 	private String algoType;
 
-    public AssetSelectionService(AssetRepository repo) {
-        this.repo = repo;
+    public AssetSelectionService() {
+    	
     }
 	
     /**
@@ -38,9 +38,9 @@ public class AssetSelectionService {
 		try {
 			switch(algoType) {
 				case "simple":
-					return findAvailableAssets(request.getDate(), request.getVolume());
+					return findAvailableAssets(request.getDate(), request.getVolume(), repo.getAssets());
 				case "complex":
-					return findAvailableAssetsComplex(request.getDate(), request.getVolume());
+					return findAvailableAssetsComplex(request.getDate(), request.getVolume(), repo.getAssets());
 				default:
 					throw new PropertyException("no type of algo selected");
 			}
@@ -56,10 +56,10 @@ public class AssetSelectionService {
 	 * @return list of available assets regarding the simple conditions
 	 * @throws AssetException 
 	 */
-	public List<AssetDTO> findAvailableAssets(LocalDateTime activationDate, int volumeNeeded) throws AssetException{
+	public List<AssetDTO> findAvailableAssets(LocalDateTime activationDate, int volumeNeeded, List<AssetEntity> assets) throws AssetException{
 		List<AssetDTO> availableAssets = new ArrayList<AssetDTO>();
 		
-		for(AssetEntity asset:repo.getAssets()) {
+		for(AssetEntity asset:assets) {
 			for (AvailabilityEntity availabilitySlot : asset.getAvailability()) {
                 if (!activationDate.isBefore(availabilitySlot.getStart()) &&
                     !activationDate.isAfter(availabilitySlot.getEnd())) {
@@ -80,7 +80,7 @@ public class AssetSelectionService {
 	 * @param volumeNeeded
 	 * @return list of available assets regarding the simple conditions
 	 */
-	public List<AssetDTO> findAvailableAssetsComplex(LocalDateTime activationDate, int volumeNeeded) {
+	public List<AssetDTO> findAvailableAssetsComplex(LocalDateTime activationDate, int volumeNeeded, List<AssetEntity> assets) {
 		List<AssetDTO> availableAssets = new ArrayList<AssetDTO>();
 		//TODO
 		
