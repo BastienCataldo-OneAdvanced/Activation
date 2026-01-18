@@ -5,7 +5,7 @@ import java.util.List;
 import com.asset.activation.data.AssetEntity;
 import com.asset.activation.data.AvailabilityEntity;
 
-public class AssetTestCaseFactory {
+public class AssetFactory {
 	
 	/**
 	 * Method to create assetEntity

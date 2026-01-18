@@ -4,10 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import com.asset.activation.factory.AssetFactory;
 
-public class SelectAssetComplexTest {
-	
-	private AssetFactory factory = new AssetFactory();
-	 
+public class assetRepositoryTest {
+
 	@BeforeEach
 	void init() {
 		
@@ -15,21 +13,6 @@ public class SelectAssetComplexTest {
 	
 	@Test
 	void testWithEmptyAssetList() {
-		
-	}
-	
-	@Test
-	void testWithNoDateMatchOfAsset() {
-		
-	}
-	
-	@Test
-	void testWithNotEnouthVolume() {
-		
-	}
-	
-	@Test
-	void testWithOneMatchOfAsset() {
 		
 	}
 }

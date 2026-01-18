@@ -21,7 +21,7 @@ public class SelectAssetComplex {
 		List<AssetDTO> selectedAssets = new ArrayList<AssetDTO>();
 		int remainVolume = volumeNeeded;
 		
-		//Sorting the list by efficiency  of each asset. cost/volume = price for 1Kw
+		//Sorting the list by efficiency of each asset. cost/volume = price for 1Kw
 		availableAssets.sort(Comparator.comparingDouble(assetEntity -> (double) assetEntity.getActivationCost() / assetEntity.getVolume()));
 		
 		for(AssetEntity asset:availableAssets) {

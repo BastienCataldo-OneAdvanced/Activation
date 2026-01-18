@@ -41,14 +41,10 @@ J'ai appeler mes classes de données entity afin de symboliser leur appartenance
 
 j'ai également ajouter 2 classes d'exception afin de montrer les bonnes pratiques de gestion d'erreur métier. Cela permet d'avantage de lisibilité et permet de différencier les erreurs métiers des erreurs de programmations.
 
+j'utilise mokito dans mes tests unitaires afin de m'éviter d'utiliser une factory lourde et de rendre plus lisible les valeurs sur lesquels je fais les tests!
 
 
-
-
-
-
-
-
+****
 Rajout possible de priorités dans les assets
 
 rajout possible de la distinction pour les assets de production et de consommation
