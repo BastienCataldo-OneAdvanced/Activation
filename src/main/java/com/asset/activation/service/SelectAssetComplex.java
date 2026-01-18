@@ -22,7 +22,7 @@ public class SelectAssetComplex {
 		int remainVolume = volumeNeeded;
 		
 		//Sorting the list by efficiency  of each asset. cost/volume = price for 1Kw
-		availableAssets.sort(Comparator.comparingDouble(r -> (double) r.getActivationCost() / r.getVolume()));
+		availableAssets.sort(Comparator.comparingDouble(assetEntity -> (double) assetEntity.getActivationCost() / assetEntity.getVolume()));
 		
 		for(AssetEntity asset:availableAssets) {
 			selectedAssets.add(AssetMapper.toDTO(asset));
@@ -35,5 +35,4 @@ public class SelectAssetComplex {
 			throw new AssetException("The assets cant answer to the requested volume!");
 		return selectedAssets;
 	}
-
 }

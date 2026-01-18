@@ -42,8 +42,4 @@ public class AssetSelectionService {
 			throw new RuntimeException(e);
 		}
 	}
-	
-	
-
-	
 }

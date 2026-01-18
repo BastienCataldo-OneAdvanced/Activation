@@ -2,21 +2,15 @@ package com.asset.activation.service;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
-
-import com.asset.activation.data.AssetRepository;
 import com.asset.activation.factory.AssetTestCaseFactory;
 
-public class AssetSelectionServiceTest {
+public class SelectAssetComplexTest {
 	
-	@Mock
-	private AssetRepository assetRepo;
-	private AssetSelectionService assetService;
-	private AssetTestCaseFactory factory;
+	private AssetTestCaseFactory factory = new AssetTestCaseFactory();
 	 
 	@BeforeEach
 	void init() {
-		assetService = new AssetSelectionService(assetRepo);
+		
 	}
 	
 	@Test

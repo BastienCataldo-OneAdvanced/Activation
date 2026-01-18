@@ -12,7 +12,6 @@ import com.asset.activation.form.ActivationRequest;
 import com.asset.activation.service.AssetSelectionService;
 
 @RestController
-@RequestMapping("/flexcity")
 public class ActivationController {
 
 	private final AssetSelectionService assetSelectionService;
@@ -21,7 +20,7 @@ public class ActivationController {
 	    this.assetSelectionService = assetSelectionService;
 	}
 	
-	@PostMapping("/activate")
+	@PostMapping("/flexcity/activate")
 	public List<AssetDTO> activate(@RequestBody ActivationRequest request) {
 	   return assetSelectionService.selectAssets(request);
 	}
