@@ -7,6 +7,7 @@ import java.util.List;
 import com.asset.activation.DTO.AssetDTO;
 import com.asset.activation.DTO.AssetMapper;
 import com.asset.activation.data.AssetEntity;
+import com.asset.activation.data.AssetExceptionEnum;
 import com.asset.activation.exception.AssetException;
 
 public class SelectAssetComplex {
@@ -27,12 +28,12 @@ public class SelectAssetComplex {
 		for(AssetEntity asset:availableAssets) {
 			selectedAssets.add(AssetMapper.toDTO(asset));
 			remainVolume-=asset.getVolume();
-			if(remainVolume<0)return selectedAssets;
+			if(remainVolume<=0)return selectedAssets;
 		}
 		if(selectedAssets.isEmpty()) {
-			throw new AssetException("No assets found!");
+			throw new AssetException(AssetExceptionEnum.ERROR_NO_ASSET_AVAILABLE.getMessage());
 		}else if(remainVolume>0)
-			throw new AssetException("The assets cant answer to the requested volume!");
+			throw new AssetException(AssetExceptionEnum.ERROR_VOLUME_TOO_BIG.getMessage());
 		return selectedAssets;
 	}
 }
