@@ -9,9 +9,7 @@ import com.asset.activation.data.AssetEntity;
 import com.asset.activation.data.AssetExceptionEnum;
 import com.asset.activation.exception.AssetException;
 
-public class SelectAssetSimple {
-	
-	
+public class SelectAssetSimple implements SelectAssetAlgo {
 	
 	/**
 	 * Method to get the list of available assets through a simple way with date and volume conditions
@@ -20,8 +18,9 @@ public class SelectAssetSimple {
 	 * @return list of available assets regarding the simple conditions
 	 * @throws AssetException 
 	 */
-	static public List<AssetDTO> selectAssetsSimple(int volumeNeeded, List<AssetEntity> availableAssets) throws AssetException{
-	
+	@Override
+	public List<AssetDTO> selectAsset(int volumeNeeded, List<AssetEntity> availableAssets) throws AssetException{
+		if(volumeNeeded<=0)return null;
 		List<AssetDTO> selectedAssets = new ArrayList<AssetDTO>();
 		int remainVolume = volumeNeeded;
 		for(AssetEntity asset:availableAssets) {

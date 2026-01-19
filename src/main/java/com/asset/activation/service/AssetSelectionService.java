@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.asset.activation.DTO.AssetDTO;
 import com.asset.activation.data.AssetRepository;
-import com.asset.activation.exception.PropertyException;
 import com.asset.activation.form.ActivationRequest;
 
 @Service
@@ -26,18 +25,13 @@ public class AssetSelectionService {
      * Method to select the requested assets from the available list of assets
      * @param request
      * @return selectedAsset list
-     * @throws PropertyException 
      */
-	public List<AssetDTO> selectAssets(ActivationRequest request){
+	public List<AssetDTO> activateAssets(ActivationRequest request){
 		try {
-			switch(algoType) {
-				case "simple":
-					return SelectAssetSimple.selectAssetsSimple(request.getVolume(), repo.findAssetsByDate(request.getDate()));
-				case "complex":
-					return SelectAssetComplex.selectAssetsComplex(request.getVolume(), repo.findAssetsByDate(request.getDate()));
-				default:
-					throw new PropertyException("no type of algo selected");
-			}
+			//Ask to the factory what algo class choose regarding the algoType
+			SelectAssetAlgo selectAssetAglo =  SelectAssetAlgoFactory.getAssetAlgo(algoType);
+			//Then call the algorithm method and return the selected list of asset mapped in the DTO object
+			return selectAssetAglo.selectAsset(request.getVolume(), repo.findAssetsByDate(request.getDate()));
 		}catch(Exception e){
 			throw new RuntimeException(e);
 		}

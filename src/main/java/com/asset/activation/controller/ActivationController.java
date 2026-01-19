@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.asset.activation.DTO.AssetDTO;
@@ -22,6 +21,6 @@ public class ActivationController {
 	
 	@PostMapping("/flexcity/activate")
 	public List<AssetDTO> activate(@RequestBody ActivationRequest request) {
-	   return assetSelectionService.selectAssets(request);
+	   return assetSelectionService.activateAssets(request);
 	}
 }

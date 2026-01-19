@@ -4,7 +4,6 @@ import java.util.List;
 public class AssetEntity {
 	private String code;
 	private String name;
-	private String clientType;
 	private double activationCost;
 	private List<AvailabilityEntity> availability;
 	private int volume;
@@ -21,12 +20,6 @@ public class AssetEntity {
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	public String getClientType() {
-		return clientType;
-	}
-	public void setClientType(String clientType) {
-		this.clientType = clientType;
 	}
 	public double getActivationCost() {
 		return activationCost;

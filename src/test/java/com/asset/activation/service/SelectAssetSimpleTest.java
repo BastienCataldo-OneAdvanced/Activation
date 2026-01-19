@@ -2,6 +2,7 @@ package com.asset.activation.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -24,6 +25,7 @@ public class SelectAssetSimpleTest {
 	private AssetEntity asset1;
 	private AssetEntity asset2;
 	private AssetEntity asset3;
+	private SelectAssetSimple selectAssetSimple = new SelectAssetSimple();
 	 
 	@BeforeEach
 	void init() {
@@ -40,11 +42,11 @@ public class SelectAssetSimpleTest {
 	
 	
 	@Test
-	@DisplayName("Test with only 1 asset")
+	@DisplayName("Test with 1 match asset")
 	void testWithOneMatchOfAsset() throws AssetException {
 		availableAssets.add(asset1);
         
-		List<AssetDTO> result = SelectAssetSimple.selectAssetsSimple(100, availableAssets);
+		List<AssetDTO> result = selectAssetSimple.selectAsset(100, availableAssets);
         
         assertNotNull(result);
         assertEquals(1, result.size());
@@ -56,13 +58,31 @@ public class SelectAssetSimpleTest {
 		availableAssets.add(asset1);
 		availableAssets.add(asset2);
         
-        List<AssetDTO> result = SelectAssetSimple.selectAssetsSimple(250, availableAssets);
+        List<AssetDTO> result = selectAssetSimple.selectAsset(250, availableAssets);
         
         assertNotNull(result);
         assertEquals(2, result.size());
     }
 	
-
+	@Test
+    @DisplayName("Volume needed equal zero")
+    void testZeroVolumeNeeded() throws AssetException {
+		availableAssets.add(asset1);
+        
+        List<AssetDTO> result = selectAssetSimple.selectAsset(0, availableAssets);
+        
+        assertNull(result);
+    }
+	
+	@Test
+    @DisplayName("Volume needed equal zero")
+    void testNegativeVolumeNeeded() throws AssetException {
+		availableAssets.add(asset1);
+        
+        List<AssetDTO> result = selectAssetSimple.selectAsset(-10, availableAssets);
+        
+        assertNull(result);
+    }
 	
 	
 	/********* Error tests *********/
@@ -70,7 +90,7 @@ public class SelectAssetSimpleTest {
 	@Test
 	@DisplayName("Test when no assets available")
     void testNoAssetsAvailable() {
-		AssetException exception = assertThrows(AssetException.class, () -> {SelectAssetSimple.selectAssetsSimple(500, new ArrayList<AssetEntity>());});
+		AssetException exception = assertThrows(AssetException.class, () -> {selectAssetSimple.selectAsset(100, new ArrayList<AssetEntity>());});
         
         assertEquals(AssetExceptionEnum.ERROR_NO_ASSET_AVAILABLE.getMessage(), exception.getMessage());
     }
@@ -82,7 +102,7 @@ public class SelectAssetSimpleTest {
         availableAssets.add(asset2);
         availableAssets.add(asset3);
         
-        AssetException exception = assertThrows(AssetException.class, () -> {SelectAssetSimple.selectAssetsSimple(100, new ArrayList<AssetEntity>());});
+        AssetException exception = assertThrows(AssetException.class, () -> {selectAssetSimple.selectAsset(500, availableAssets);});
         
         assertEquals(AssetExceptionEnum.ERROR_VOLUME_TOO_BIG.getMessage(), exception.getMessage());
     }

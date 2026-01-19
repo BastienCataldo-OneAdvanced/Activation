@@ -46,7 +46,6 @@ I named my data classes entities to reflect their association with the database,
 I also added two exception classes to demonstrate best practices in handling business errors. This improves code readability and makes it possible to distinguish business-related errors from programming errors.
 I use Mockito in my unit tests to avoid relying on a heavy factory setup and to make the test values easier to read and understand.
 
-
 ****
 Rajout possible de priorités dans les assets
 
