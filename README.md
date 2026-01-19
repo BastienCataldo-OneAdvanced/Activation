@@ -1,9 +1,16 @@
 Flexcity Backend Test
 
-How to run it:mvn spring-boot:run
+How to run it:
+get the project from GIT
+install maven on your computer (change your environnement variable)
+install jdk 25
+Go to your project
+open a command terminal
+then execute mvn spring-boot:run
+
 How to execute a request POST: download a POST application(ex:Postman)
 put the URL:http://localhost:8080/flexcity/activate 
-and select json body with
+and fill json body with
 {
 	"date": "2026-01-20T16:00:00",
 	"volume": 7000
@@ -11,11 +18,10 @@ and select json body with
 
 
 
-J'ai réalisé cette API en Java par ma maitrise du langage et springboot pour sa simplicité de développement, de portabilité et d'exécution.
+I developed this API in Java due to my strong command of the language, and I chose Spring Boot for its simplicity of development, portability, and execution.
 
-A l'aide d'un petit controller Rest à la réception de la request cliente pour l'activation d'assets en fonction de la date et du volume. Je retransmet la demande à mon service qui va ainsi effectuer une récupération des assets disponibles à cette date pour ensuite les trier et les sélectionner selon l'algo configurer.
-
-Cette sélection est ensuite mapper dans une liste d'objet DTO afin de filtrer les informations retransmise.
+Using a small REST controller, the client request for asset activation based on date and volume is received. Then, I send the request to my service layer, which retrieves the assets available on that date, send that list to my calcul algorithm to select the right assets to activates.
+This selection is then mapped into a list of DTO objects in order to filter the information being returned.
 
 
 Client
