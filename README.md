@@ -42,20 +42,15 @@ Controller
   ↓
 response with DTO object list
 
-
-J'ai appeler mes classes de données entity afin de symboliser leur appartenance à la base de données mais sans les annoters @Entity afin d'éviter la mise en place de celle-ci non nécessaire pour l'exercice. Je récupère donc un fichier de donnée Json au travers de la classe AssetRepository.
-
-j'ai également ajouter 2 classes d'exception afin de montrer les bonnes pratiques de gestion d'erreur métier. Cela permet d'avantage de lisibilité et permet de différencier les erreurs métiers des erreurs de programmations.
-
-j'utilise mokito dans mes tests unitaires afin de m'éviter d'utiliser une factory lourde et de rendre plus lisible les valeurs sur lesquels je fais les tests!
+I named my data classes entities to reflect their association with the database, but I did not annotate them with @Entity in order to avoid setting up a database, which was unnecessary for this exercise. Instead, I retrieve a JSON data file through the AssetRepository class.
+I also added two exception classes to demonstrate best practices in handling business errors. This improves code readability and makes it possible to distinguish business-related errors from programming errors.
+I use Mockito in my unit tests to avoid relying on a heavy factory setup and to make the test values easier to read and understand.
 
 
 ****
 Rajout possible de priorités dans les assets
 
-rajout possible de la distinction pour les assets de production et de consommation
-
-enum possible sur le switch case!
+rajout possible de la distinction pour les assets de production et de consommation, si les assets peuvent fournir en partie les kw indiqué ou si c'est la valeur total?
 
 Décidé de séparer les 2 classes d'algo pour plus de lisibilité et de précisions dans les tests unitaires. Donc de pouvoir générer les listes d'assets en paramètre des méthodes sans avoir besoin de mocker le repo.
 
