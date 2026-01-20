@@ -1,6 +1,9 @@
 Flexcity Backend Test
 
+
+
 How to run it:
+
 get the project from GIT
 install maven on your computer (change your environnement variable)
 install jdk 25
@@ -8,7 +11,9 @@ Go to your project
 open a command terminal
 then execute mvn spring-boot:run
 
-How to execute a request POST: download a POST application(ex:Postman)
+How to execute a request POST:
+
+download a POST application(ex:Postman)
 put the URL:http://localhost:8080/flexcity/activate 
 and fill json body with
 {
@@ -44,14 +49,10 @@ response with DTO object list
 
 I named my data classes entities to reflect their association with the database, but I did not annotate them with @Entity in order to avoid setting up a database, which was unnecessary for this exercise. Instead, I retrieve a JSON data file through the AssetRepository class.
 I also added two exception classes to demonstrate best practices in handling business errors. This improves code readability and makes it possible to distinguish business-related errors from programming errors.
+I decided to separate the two algorithm classes to improve readability and provide greater precision in the unit tests.
+I made a factory of these algo classes selection to illustrate the separation of responsabilities and to start projet with long term vision.
 I use Mockito in my unit tests to avoid relying on a heavy factory setup and to make the test values easier to read and understand.
-
-****
-Rajout possible de priorités dans les assets
-
-rajout possible de la distinction pour les assets de production et de consommation, si les assets peuvent fournir en partie les kw indiqué ou si c'est la valeur total?
-
-Décidé de séparer les 2 classes d'algo pour plus de lisibilité et de précisions dans les tests unitaires. Donc de pouvoir générer les listes d'assets en paramètre des méthodes sans avoir besoin de mocker le repo.
+I made an enum for exception in the case of multi langage project exploitation,but in our simple case, static constant would be more accurate.
 
 
 
