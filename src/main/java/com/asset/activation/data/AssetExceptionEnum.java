@@ -3,6 +3,7 @@ package com.asset.activation.data;
 public enum AssetExceptionEnum {
 	
 	ERROR_NO_ASSET_AVAILABLE("No assets found!"),
+	ERROR_NO_ASSET_SELECTED("No selected assets found!"),
 	ERROR_VOLUME_TOO_BIG("The assets cant answer to the requested volume!");
 	
 	

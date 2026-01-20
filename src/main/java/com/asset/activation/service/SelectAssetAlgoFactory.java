@@ -7,8 +7,8 @@ public class SelectAssetAlgoFactory {
 		switch(algoType) {
 			case "simple":
 				return new SelectAssetSimple();
-			case "complex":
-				return new SelectAssetComplex();
+			case "sorted":
+				return new SelectAssetSorted();
 			default:
 				throw new PropertyException("no type of algo selected");
 		}

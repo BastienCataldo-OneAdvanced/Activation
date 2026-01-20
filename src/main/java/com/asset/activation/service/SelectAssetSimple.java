@@ -21,6 +21,9 @@ public class SelectAssetSimple implements SelectAssetAlgo {
 	@Override
 	public List<AssetDTO> selectAsset(int volumeNeeded, List<AssetEntity> availableAssets) throws AssetException{
 		if(volumeNeeded<=0)return null;
+		if(availableAssets.isEmpty()) {
+			throw new AssetException(AssetExceptionEnum.ERROR_NO_ASSET_AVAILABLE.getMessage());
+		}
 		List<AssetDTO> selectedAssets = new ArrayList<AssetDTO>();
 		int remainVolume = volumeNeeded;
 		for(AssetEntity asset:availableAssets) {
@@ -28,10 +31,10 @@ public class SelectAssetSimple implements SelectAssetAlgo {
 			remainVolume=remainVolume-asset.getVolume();
 			if(remainVolume<=0)return selectedAssets;
 		}
-		if(selectedAssets.isEmpty()) {
-			throw new AssetException(AssetExceptionEnum.ERROR_NO_ASSET_AVAILABLE.getMessage());
-		}else if(remainVolume>0)
+		if(remainVolume>0) {
 			throw new AssetException(AssetExceptionEnum.ERROR_VOLUME_TOO_BIG.getMessage());
-		return selectedAssets;
+		}else {
+			throw new AssetException(AssetExceptionEnum.ERROR_NO_ASSET_SELECTED.getMessage());
+		}
 	}
 }
